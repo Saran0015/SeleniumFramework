@@ -40,7 +40,7 @@ jobs:
             mkdir -p ~/testng/results/
              command: |
             mkdir -p ~/testng/results/
-            find . -type f -regex "./ExtentReports/AutomationResult.html" -exec cp {} ~/testng/results/ \;
+            find . -type f -regex "ExtentReports/AutomationResult.html" -exec cp {} ~/testng/results/ \;
           when: always                
       - store_test_results:
           path: ~/testng/results/
