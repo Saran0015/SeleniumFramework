@@ -34,16 +34,15 @@ jobs:
       # run tests!
       - run: mvn clean integration-test
 
-     steps:
       - run:
           name: Save test results
           command: |
-            mkdir -p ~/test-results/junit/
-            find . -type f -regex ".*/target/surefire-reports/.*xml" -exec cp {} ~/test-results/junit/ \;
+            mkdir -p ~/testng/results/
+            find . -type f -regex "./test-output/testng-results.xml" -exec cp {} ~/testng/results/ \;
           when: always
       - store_test_results:
-          path: ~/test-results
+          path: ~/testng/results/
       - store_artifacts:
-          path: ~/test-results
+          path: ~/testng/results/
       - store_artifacts:
-          path:  /test-results
+          path:  testng/results/
